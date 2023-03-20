@@ -16,7 +16,8 @@ interface AssetControlProps {
 }
 
 const Image = styled.img`
-  max-width: 60%;
+  max-width: 50%;
+  height: 200px;
 `;
 
 const AssetControl: FC<AssetControlProps> = ({ handleChange, data, path }) => {

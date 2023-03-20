@@ -1,7 +1,7 @@
-import React from 'react';
-import { Paragraph } from '@contentful/f36-components';
-import { EditorExtensionSDK } from '@contentful/app-sdk';
-import { /* useCMA, */ useSDK } from '@contentful/react-apps-toolkit';
+import React from "react";
+import { Paragraph } from "@contentful/f36-components";
+import { EditorExtensionSDK } from "@contentful/app-sdk";
+import { /* useCMA, */ useSDK } from "@contentful/react-apps-toolkit";
 
 const Entry = () => {
   const sdk = useSDK<EditorExtensionSDK>();
@@ -11,7 +11,10 @@ const Entry = () => {
   */
   // const cma = useCMA();
 
-  return <Paragraph>Hello Entry Editor Component (AppId: {sdk.ids.app})</Paragraph>;
+  return (
+    <Paragraph>Hello Entry Editor Component (AppId: {sdk.ids.app})</Paragraph>
+  );
+  // return <JSONForms sdk={sdk} />;
 };
 
 export default Entry;
