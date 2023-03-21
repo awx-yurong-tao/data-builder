@@ -1,0 +1,135 @@
+{
+  "type": "object",
+  "properties": {
+    "hero": {
+      "type": "object",
+      "properties": {
+        "heading": {
+          "type": "string"
+        },
+        "subheading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "primaryBtnText": {
+          "type": "string"
+        },
+        "primaryBtnLink": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "url"]
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "caption": {
+          "type": "string"
+        }
+      },
+      "control": "asset"
+    },
+    "logos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              }
+            },
+            "control": "asset"
+          }
+        }
+      }
+    },
+    "platformBlocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "heading": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "tabs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tabHeading": {
+                  "type": "string"
+                },
+                "tabContent": {
+                  "type": "object",
+                  "properties": {
+                    "heading": {
+                      "type": "string"
+                    },
+                    "subheading": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "caption": {
+                          "type": "string"
+                        }
+                      },
+                      "control": "asset"
+                    },
+                    "cards": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "heading": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "caption": {
+                                "type": "string"
+                              }
+                            },
+                            "control": "asset"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
