@@ -1,29 +1,14 @@
 {
   "type": "object",
   "properties": {
-    "content": {
+    "whyAirwallex": {
       "type": "object",
       "properties": {
-        "hero": {
-          "type": "object",
-          "properties": {
-            "heading": {
-              "type": "string"
-            },
-            "subheading": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "primaryBtnText": {
-              "type": "string"
-            },
-            "primaryBtnLink": {
-              "type": "string"
-            }
-          },
-          "required": ["type", "url"]
+        "heading": {
+          "type": "string"
+        },
+        "subheading": {
+          "type": "string"
         },
         "image": {
           "type": "object",
@@ -36,6 +21,23 @@
             }
           },
           "control": "asset"
+        },
+        "description": {
+          "type": "string"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "heading": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
         }
       }
     }
