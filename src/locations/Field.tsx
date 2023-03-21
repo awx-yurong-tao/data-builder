@@ -8,9 +8,6 @@ import { prettyPrintJson } from "pretty-print-json";
 import { Select, Button } from "@contentful/f36-components";
 import { PageNames } from "../constants";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-
 const Field = () => {
   const sdk = useSDK<FieldExtensionSDK>();
   useEffect(() => {
@@ -27,7 +24,6 @@ const Field = () => {
   };
 
   const handleOnChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
-    console.log(event.target.value);
     setPageName(event.target.value);
   };
 
