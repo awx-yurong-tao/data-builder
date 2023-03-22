@@ -19,8 +19,7 @@
         "primaryBtnLink": {
           "type": "string"
         }
-      },
-      "required": ["type", "url"]
+      }
     },
     "image": {
       "type": "object",
@@ -130,6 +129,15 @@
           }
         }
       }
+    },
+    "referecedHero": {
+      "type": "object",
+      "properties": {
+        "entryId": {
+          "type": "string"
+        }
+      },
+      "control": "reference"
     }
   }
 }

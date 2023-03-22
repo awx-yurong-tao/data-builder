@@ -1,26 +1,30 @@
 import { Asset, FieldExtensionSDK } from "@contentful/app-sdk";
 import { useSDK } from "@contentful/react-apps-toolkit";
-import { Button, Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
+import { Button } from "@contentful/f36-components";
 import { withJsonFormsControlProps } from "@jsonforms/react";
 import React, { FC, useEffect } from "react";
 import styled from "@emotion/styled";
+import { ControlProps } from "@jsonforms/core";
 
 type IData = {
   url?: string;
   caption?: string;
 };
-interface AssetControlProps {
-  data: IData | undefined;
-  handleChange(path: string, value: any): void;
-  path: string;
-}
+
+type AssetControlProps = ControlProps;
 
 const Image = styled.img`
   max-width: 50%;
   height: 200px;
 `;
 
-const AssetControl: FC<AssetControlProps> = ({ handleChange, data, path }) => {
+const AssetControl: FC<AssetControlProps> = ({
+  handleChange,
+  data,
+  path,
+  label,
+}) => {
   const sdk = useSDK<FieldExtensionSDK>();
   const [value, setValue] = React.useState<IData | undefined>(data);
 
@@ -32,10 +36,8 @@ const AssetControl: FC<AssetControlProps> = ({ handleChange, data, path }) => {
   return (
     <Card>
       <CardContent>
-        <Typography variant="h6">Asset</Typography>
-        <div>
-          <Image src={value?.url} />
-        </div>
+        <Typography variant="h6">{label}</Typography>
+        <div>{value?.url && <Image src={value?.url} />}</div>
         <div>
           <Button
             onClick={() => {

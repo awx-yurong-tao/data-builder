@@ -8,14 +8,16 @@ import { FC, useEffect, useState } from "react";
 import { DataBlockFormProps } from "./types";
 import assetControlTester from "./renders/AssetControl/assetControlTester";
 import AssetControl from "./renders/AssetControl";
-import { Button, Drawer, IconButton } from "@mui/material";
 import styled from "@emotion/styled";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ReferenceControl from "./renders/ReferenceControl";
+import referenceControlTester from "./renders/ReferenceControl/referenceControlTester";
+import { css } from "emotion";
 
 const renderers = [
   ...materialRenderers,
   //register custom renderers
   { tester: assetControlTester, renderer: AssetControl },
+  { tester: referenceControlTester, renderer: ReferenceControl },
 ];
 
 const Content = styled.div`
@@ -24,8 +26,7 @@ const Content = styled.div`
 
 const DataBlockForm: FC<DataBlockFormProps> = ({ sdk, pageName }) => {
   const [data, setData] = useState<any>(sdk.field.getValue());
-  const [drawerVisible, setDrawerVisible] = useState(false);
-  const [schema, setSchema] = useState<any>(undefined);
+  const [schema, setSchema] = useState<any>({});
 
   const updateSchma = () => {
     import(`./schemas/${pageName}.json`).then((schema) => {
@@ -34,19 +35,17 @@ const DataBlockForm: FC<DataBlockFormProps> = ({ sdk, pageName }) => {
   };
 
   useEffect(() => {
-    updateSchma();
+    if (pageName) {
+      updateSchma();
+    }
   }, [pageName]);
 
   useEffect(() => {
     sdk.field.setValue(data);
   }, [data, sdk]);
 
-  const toggleDrawer = (open: boolean) => () => {
-    setDrawerVisible(open);
-  };
-
   return (
-    <>
+    <div>
       <JsonForms
         schema={schema}
         data={data}
@@ -59,15 +58,8 @@ const DataBlockForm: FC<DataBlockFormProps> = ({ sdk, pageName }) => {
           setData(data);
         }}
       />
-    </>
+    </div>
   );
 };
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: "0 8px",
-  justifyContent: "flex-end",
-}));
 
 export default DataBlockForm;
